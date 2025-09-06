@@ -32,7 +32,7 @@ public class Produto {
         }   
     }
     // Métodos de comportamento
-    public String ExibirMensagem() {
+    public String exibirMensagem() {
         return this.nome + " (" + this.codigo + ") - R$ " + String.format("%.2f", this.preco);
     }
 }
