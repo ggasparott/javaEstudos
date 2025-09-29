@@ -25,9 +25,8 @@ public class Livro extends Produto {
 
 
  // Metodos De Comportamento
-
-    public String exibirDetalhes() {
-
+    @Override
+    public String exibirMensagem() {
     String detalhesProdutos = super.exibirMensagem();
     return detalhesProdutos + " | Autor: " + this.autor;
     }
