@@ -4,11 +4,11 @@ public class Aluno {
     // atributos
     private double notaP1;
     private double notaP2;
-    private String matricula;
+    private int matricula;
     private String nome;
     private double notaTrabalho;
 
-    public Aluno(String matricula, String nome) {
+    public Aluno(int matricula, String nome) {
         this.matricula = matricula;
         this.nome = nome;
     }
@@ -17,7 +17,7 @@ public class Aluno {
         return nome;
     }
 
-    public String getMatricula() {
+    public int getMatricula() {
         return matricula;
     }
 
@@ -39,7 +39,7 @@ public class Aluno {
         if(notaP1 > 0) {
             this.notaP1 = notaP1;
         } else {
-            new Error("Nota não pode ser definida");
+           throw new Error("Nota não pode ser definida");
         }
     }
 
@@ -64,7 +64,7 @@ public class Aluno {
 }
     public double calcularMediaFinal() {
         double mediaAtual = this.media();
-        if(mediaAtual >= 7) {
+        if(mediaAtual >= 6) {
             return 0.0;
         } else {
             double notaNecessaria = 10 - mediaAtual;
@@ -73,6 +73,7 @@ public class Aluno {
     }
 
     public String exibirMensagem() {
-      return this.nome + "(" + this.matricula + ") " + this.media() + this.calcularMediaFinal();
+      return String.format("Aluno: %s (Matricula: %s) | Média Parcial: %.2f",
+                             this.nome, this.matricula, this.media());
     }
 }
