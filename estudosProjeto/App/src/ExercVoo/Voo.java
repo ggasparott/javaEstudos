@@ -31,12 +31,20 @@ public class Voo {
     }
 
     public boolean ocupa(int numeroCadeira) {
-        boolean assento = verifica(numeroCadeira);
-        int indice = numeroCadeira - 1;
-        if(assento == false) {
-            this.assentosVoo[indice] = true;
-        } else {
-        return false;
+        if(this.verifica(numeroCadeira)) {
+            return false;
         }
+        int indice = numeroCadeira - 1;
+        return this.assentosVoo[indice] = true;
+    }
+
+    public int vagas() {
+        int contadorVagas = 0;
+        for (int i = 0; i < assentosVoo.length; i++) {
+            if(this.assentosVoo[i] == false) {
+                contadorVagas++;
+            }
+        }
+        return contadorVagas;
     }
 }
